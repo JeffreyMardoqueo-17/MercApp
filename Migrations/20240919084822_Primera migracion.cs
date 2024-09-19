@@ -66,7 +66,7 @@ namespace MercApp.Migrations
                     Pass = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     FechaRegistro = table.Column<DateTime>(type: "date", nullable: false),
                     IdGenero = table.Column<int>(type: "int", nullable: false),
-                    IdRol = table.Column<int>(type: "int", nullable: false)
+                    IdRol = table.Column<int>(type: "int", nullable: false), 
                 },
                 constraints: table =>
                 {

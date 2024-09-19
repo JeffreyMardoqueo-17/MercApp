@@ -1,27 +1,24 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+using MercApp.Models;
 
-namespace MercApp.Models
+namespace MercApp.ViewModels
 {
-    public class Usuario
+    public class UsuarioVM
     {
-        public int Id { get; set; }
 
-        [Required]
         public string Nombre { get; set; }
 
-        [Required]
         public string Apellido { get; set; }
 
         public string Telefono { get; set; }
 
-        [Required, EmailAddress]
         public string Email { get; set; }
 
-
-        [Required, MaxLength(210)] // Establece el límite de caracteres a 60
         public string Pass { get; set; }
+        public string ConfirmarPass { get; set; }
 
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
 

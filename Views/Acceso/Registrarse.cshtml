@@ -1,0 +1,112 @@
+﻿@model MercApp.ViewModels.UsuarioVM;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en" class="bg-light-background dark:bg-dark-background">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse - MercApp</title>
+    <link rel="stylesheet" href="~/css/output.css" />
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-light-background dark:bg-dark-background">
+    <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+        <form asp-controller="Acceso" asp-action="Registrarse" method="post" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Nombre -->
+                <div>
+                    <label for="nombre" class="block text-sm font-medium mb-2">Nombre:</label>
+                    <input type="text" id="nombre" asp-for="Nombre" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="Nombre" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Apellido -->
+                <div>
+                    <label for="apellido" class="block text-sm font-medium mb-2">Apellido:</label>
+                    <input type="text" id="apellido" asp-for="Apellido" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="Apellido" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Teléfono -->
+                <div>
+                    <label for="telefono" class="block text-sm font-medium mb-2">Teléfono:</label>
+                    <input type="text" id="telefono" asp-for="Telefono"
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="Telefono" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Correo electrónico:</label>
+                    <input type="email" id="email" asp-for="Email" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="Email" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                    <label for="pass" class="block text-sm font-medium mb-2">Contraseña:</label>
+                    <input type="password" id="pass" asp-for="Pass" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="Pass" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Confirmar Contraseña -->
+                <div>
+                    <label for="confirmarPass" class="block text-sm font-medium mb-2">Confirmar contraseña:</label>
+                    <input type="password" id="confirmarPass" asp-for="ConfirmarPass" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    <span asp-validation-for="ConfirmarPass" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Género -->
+                <div>
+                    <label for="genero" class="block text-sm font-medium mb-2">Género:</label>
+                    <select id="genero" asp-for="IdGenero" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                        <option value="">Seleccione un género</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Femenino</option>
+                    </select>
+                    <span asp-validation-for="IdGenero" class="text-red-500 text-sm"></span>
+                </div>
+
+                <!-- Rol -->
+                <div>
+                    <label for="rol" class="block text-sm font-medium mb-2">Rol:</label>
+                    <select id="rol" asp-for="IdRol" required
+                        class="w-full px-4 py-2 border rounded-lg bg-gray-200 dark:bg-gray-700 text-light-primary dark:text-dark-primary border-light-secondary dark:border-dark-secondary focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                        <option value="">Seleccione un rol</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Cliente</option>
+                    </select>
+                    <span asp-validation-for="IdRol" class="text-red-500 text-sm"></span>
+                </div>
+            </div>
+
+            <!-- Botón de envío -->
+            <div class="text-center mt-6">
+                <button type="submit"
+                    class="px-6 py-2 bg-light-accent dark:bg-dark-accent text-white rounded-lg hover:bg-light-accent-hover dark:hover:bg-dark-accent-hover focus:outline-none focus:ring-2 focus:ring-light-accent dark:focus:ring-dark-accent">
+                    Registrar
+                </button>
+            </div>
+
+            <!-- Mensaje de error -->
+            @if (ViewData["Mensaje"] != null)
+            {
+                <div class="mt-4 p-4 bg-red-100 text-red-700 rounded">
+                    @ViewData["Mensaje"]
+                </div>
+            }
+        </form>
+    </div>
+</body>
+
+</html>
