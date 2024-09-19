@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MercApp.Models
 {
     public class Genero
     {
-        [Key]
         public int Id { get; set; }
 
         [Required]

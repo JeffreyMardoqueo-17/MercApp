@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MercApp.Models
 {
-    public class Role
+    public class Rol
     {
         [Key]
         public int Id { get; set; }
