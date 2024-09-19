@@ -1,49 +1,51 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-light-background dark:bg-dark-background">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MercApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/MercApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/output.css" />
 </head>
-<body>
+
+<body class="text-light-primary dark:text-dark-primary flex flex-col min-h-screen">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MercApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <nav
+            class="bg-light-background dark:bg-dark-background border-b border-light-secondary dark:border-dark-secondary shadow-md">
+            <div class="container mx-auto flex justify-between items-center p-4">
+                <a class="text-2xl font-bold" asp-area="" asp-controller="Home" asp-action="Index">MercApp</a>
+                <button id="theme-toggle" class="bg-light-accent dark:bg-dark-accent text-white px-4 py-2 rounded">
+                    Toggle Theme
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <!-- Contenedor principal con flex-grow para ocupar el espacio restante -->
+    <div class=" flex-grow bg-light-background dark:bg-dark-background ">
+        <main role="main" class="bg-light-background dark:bg-dark-background p-6 rounded shadow-md">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - MercApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <!-- Footer colocado al final de la página -->
+    <footer
+        class="border-t mt-auto py-4 bg-light-background dark:bg-dark-background text-center text-light-primary dark:text-dark-primary">
+        <div class="container mx-auto">
+            &copy; 2024 - MercApp - <a class="text-light-secondary dark:text-dark-secondary hover:underline" asp-area=""
+                asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Script para alternar el tema claro/oscuro
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

@@ -9,6 +9,11 @@
 *.user
 *.userosscache
 *.sln.docstates
+# Node.js modules
+node_modules/
+
+# Tailwind CSS output
+wwwroot/css/output.css
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
